@@ -52,7 +52,7 @@ def get_story_string():
     story = str(f.read())
     f.close()
     return story
-
+WORDLIST_FILENAME = 'words.txt'
 
 
 class Message(object):
@@ -259,7 +259,7 @@ while t==True:
     while a==True:
       user=input("Please enter 'e' to encrypt or 'd' to decrypt: ")
       try:
-         if user=="e" or user=="d":
+         if user=="e" or user=="d" or user=="force method":
              a=False
          else:
              raise AssertionError
@@ -283,7 +283,7 @@ while t==True:
         a=1
         while a==1:
             try:
-              message=input("Please enter the word you want to decrypt: ")
+              message=input("Please enter the text you want to decrypt: ")
               shift=int(input("Please enter the integer used to encrypt the text: "))
               if shift>26:
                   raise AssertionError
@@ -293,6 +293,10 @@ while t==True:
             except:
                   print("Please enter a valid input")
     
+    if user=="force method":
+        chiper=input("Type the text you want to decrypt: ")
+        ciphertext=CiphertextMessage(chiper)
+        print(chipertext.decrypt_message())
     a=1
     while a==1:
       try:
