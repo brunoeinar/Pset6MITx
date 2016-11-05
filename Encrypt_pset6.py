@@ -254,6 +254,8 @@ class CiphertextMessage(Message):
         return best
 
 t=True
+WORDLIST_FILENAME = 'words.txt'
+word_list=load_words(WORDLIST_FILENAME)
 while t==True:
     a=True
     while a==True:
@@ -296,7 +298,7 @@ while t==True:
     if user=="force method":
         chiper=input("Type the text you want to decrypt: ")
         ciphertext=CiphertextMessage(chiper)
-        print(chipertext.decrypt_message())
+        print(ciphertext.decrypt_message())
     a=1
     while a==1:
       try:
